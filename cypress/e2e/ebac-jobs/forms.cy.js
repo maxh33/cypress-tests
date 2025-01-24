@@ -8,6 +8,7 @@ describe('Tests for application page - Forms', () => {
         cy.wait(1000)
         cy.get(' .Vaga_vagaLink__DeFkk', {timeout: 1000}).first().click()
         cy.get('input').should('have.length', 7)
+        cy.screenshot('inscription-screen')
     })
 
     it('Should fill the applications forms', () => {
@@ -24,5 +25,7 @@ describe('Tests for application page - Forms', () => {
         cy.on('window:alert', (conteudo) => {
             expect(conteudo).contains('Obrigado pela candidatura!')
         })
+
+        cy.screenshot('filled-form')
     })
 })
